@@ -7,6 +7,7 @@ const app = new Vue({
     submitted: false,
     hasResult: false,
     chart: null,
+    hasAST: false,
     option: null,
     chartStyle: {
       width: document.body.clientWidth + "px",
@@ -74,9 +75,11 @@ const app = new Vue({
       }).then((res) => {
         this.info = res.data.info
         this.code = res.data.code
-        console.log(res.data.ast)
-        this.option.series[0].data = [res.data.ast]
-        this.chart.setOption(this.option)
+        if(res.data.ast) {
+          this.hasAST = true
+          this.option.series[0].data = [res.data.ast]
+          this.chart.setOption(this.option)
+        }
         this.hasResult = true
         setTimeout("Prism.highlightAll()", 200)
       }).catch((err) => {

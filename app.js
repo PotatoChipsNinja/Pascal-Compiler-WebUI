@@ -27,20 +27,38 @@ function parseAST(ast) {
 }
 
 app.get('/compile', (req, res) => {
+  try {
+    fs.unlinkSync("input.pas")
+    fs.unlinkSync("input.pas.tree.txt")
+    fs.unlinkSync("output.c")
+  } catch {}
+
+  let resObj = {
+    info: "",
+    ast: "",
+    code: ""
+  }
+
   fs.writeFile('input.pas', req.query.program, (err) => {
-      let cmd = "compiler.exe -i input.pas -o output.c -t"
-      exec(cmd, (err, stdout, stderr) => {
-        fs.readFile('output.c', (err, data) => {
-          fs.readFile('input.pas.tree.txt', (err, ast) => {
-            let resObj = {
-              info: stdout,
-              ast: parseAST(ast.toString()),
-              code: data.toString()
+    let cmd = "compiler.exe -i input.pas -o output.c -t"
+    exec(cmd, (err, stdout, stderr) => {
+      resObj.info = stdout
+      fs.readFile('input.pas.tree.txt', (err, ast) => {
+        if(err) {
+          res.send(resObj)
+        } else {
+          resObj.ast = parseAST(ast.toString())
+          fs.readFile('output.c', (err, code) => {
+            if(err) {
+              res.send(resObj)
+            } else {
+              resObj.code = code.toString()
+              res.send(resObj)
             }
-            res.send(resObj)
           })
-        })
+        }
       })
+    })
   })
 })
 

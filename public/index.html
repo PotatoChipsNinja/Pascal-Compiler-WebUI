@@ -41,21 +41,31 @@
 
           <el-row v-show="hasResult" type="flex" justify="center">
             <el-col :span="20">
-              <h1>编译信息</h1>
-              <el-divider></el-divider>
-              <pre>{{ info }}</pre>
+              <div>
+                <h1>编译信息</h1>
+                <el-divider></el-divider>
+                <el-card class="box-card">
+                  <pre style="margin: 0">{{ info }}</pre>
+                </el-card>
+              </div>
 
-              <h1>Pascal 源程序</h1>
-              <el-divider></el-divider>
-              <pre><code class="language-pascal line-numbers">{{ source }}</code></pre>
+              <div>
+                <h1>Pascal 源程序</h1>
+                <el-divider></el-divider>
+                <pre><code class="language-pascal line-numbers">{{ source }}</code></pre>
+              </div>
 
-              <h1>语法树</h1>
-              <el-divider></el-divider>
-              <div id="tree" v-bind:style="chartStyle"></div>
+              <div v-show="hasAST">
+                <h1>语法树</h1>
+                <el-divider></el-divider>
+                <div id="tree" v-bind:style="chartStyle"></div>
+              </div>
 
-              <h1>C 目标程序</h1>
-              <el-divider></el-divider>
-              <pre><code class="language-c line-numbers">{{ code }}</code></pre>
+              <div v-show="code">
+                <h1>C 目标程序</h1>
+                <el-divider></el-divider>
+                <pre><code class="language-c line-numbers">{{ code }}</code></pre>
+              </div>
             </el-col>
           </el-row>
         </el-main>
