@@ -1,0 +1,246 @@
+programstruct
+program program_head
+program_head
+program program
+program_body
+const const_declarations
+var const_declarations
+begin const_declarations
+procedure const_declarations
+function const_declarations
+program_head_89
+; EPS
+( (
+const_declarations
+const const
+var EPS
+begin EPS
+procedure EPS
+function EPS
+var_declarations
+var var
+begin EPS
+procedure EPS
+function EPS
+subprogram_declarations
+begin EPS
+procedure EPS
+function EPS
+compound_statement
+begin begin
+idlist
+id id
+idlist_78
+: EPS
+) EPS
+, ,
+const_declaration
+id id
+var_declaration
+id idlist
+subprogram_declarations_79
+begin EPS
+procedure subprogram
+function subprogram
+statement_list
+; statement
+id statement
+begin statement
+end statement
+if statement
+for statement
+while statement
+read statement
+write statement
+const_value
++ +
+- -
+' '
+digits num
+float num
+const_declaration_80
+; EPS ;
+num
+digits digits
+float float
+type
+array array
+integer basic_type
+real basic_type
+boolean basic_type
+char basic_type
+var_declaration_81
+; EPS ;
+basic_type
+integer integer
+real real
+boolean boolean
+char char
+period
+digits digits
+period_82
+] EPS
+, ,
+subprogram
+procedure subprogram_head
+function subprogram_head
+subprogram_head
+procedure procedure
+function function
+subprogram_body
+const const_declarations
+var const_declarations
+begin const_declarations
+formal_parameter
+; EPS
+: EPS
+( (
+parameter_list
+id parameter
+var parameter
+parameter
+id value_parameter
+var var_parameter
+parameter_list_83
+; ;
+) EPS
+var_parameter
+var var
+value_parameter
+id idlist
+statement
+; EPS
+id variable
+begin compound_statement
+end EPS
+if if
+for for
+while while
+read read
+write write
+else EPS
+statement_list_84
+; ;
+end EPS
+variable
+id id
+statement_90
+; EPS
+end EPS
+assignop assignop
+else EPS
+expression
+id simple_expression
+- simple_expression
+' simple_expression
+digits simple_expression
+float simple_expression
+( simple_expression
+not simple_expression
+else_part
+; EPS
+end EPS
+else EPS else
+variable_list
+id variable
+expression_list
+id expression
+- expression
+' expression
+digits expression
+float expression
+( expression
+not expression
+id_varpart
+; EPS
+end EPS
+= EPS
++ EPS
+- EPS
+[ [
+] EPS
+( (
+) EPS
+then EPS
+assignop EPS
+to EPS
+do EPS
+else EPS
+, EPS
+or EPS
+mulop EPS
+relop EPS
+simple_expression
+id term
+- term
+' term
+digits term
+float term
+( term
+not term
+expression_91
+; EPS
+end EPS
+= =
+] EPS
+) EPS
+then EPS
+to EPS
+do EPS
+else EPS
+, EPS
+relop relop
+variable_list_85
+) EPS
+, ,
+expression_list_86
+] EPS
+) EPS
+, ,
+term
+id factor
+- factor
+' factor
+digits factor
+float factor
+( factor
+not factor
+simple_expression_87
+; EPS
+end EPS
+= EPS
++ +
+- -
+] EPS
+) EPS
+then EPS
+to EPS
+do EPS
+else EPS
+, EPS
+or or
+relop EPS
+factor
+id variable
+- -
+' '
+digits num
+float num
+( (
+not not
+term_88
+; EPS
+end EPS
+= EPS
++ EPS
+- EPS
+] EPS
+) EPS
+then EPS
+to EPS
+do EPS
+else EPS
+, EPS
+or EPS
+mulop mulop
+relop EPS

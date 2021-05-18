@@ -1,0 +1,32 @@
+html, body, #app {
+  margin: 0;
+  height: 100%;
+}
+
+.el-header {
+  background-color: rgb(21, 101, 192);
+  color: #ffffff;
+  line-height: 60px;
+  border: none;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .8);
+}
+
+.el-main {
+  padding: 20px 50px;
+  background-color: #f8f8f8;
+}
+
+.logo {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 150%;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.el-divider {
+  margin-top: 10px;
+}

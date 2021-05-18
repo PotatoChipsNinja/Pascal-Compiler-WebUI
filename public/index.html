@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pascal Compiler Web UI</title>
+  <link rel="stylesheet" type="text/css" href="/css/element-ui.css">
+  <link rel="stylesheet" type="text/css" href="/css/prism.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+  <div id="app">
+    <el-container style="height: 100%">
+      <el-header>
+        <el-row type="flex" class="row-bg" justify="space-between">
+          <span>
+            <a href="/" class="logo"><i class="el-icon-s-marketing" style="margin: 0 6px"></i> Pascal Compiler</a>
+          </span>
+          <span>
+            <el-button @click="reload" type="success" icon="el-icon-refresh" style="padding: 10px 12px">重置</el-button>
+          </span>
+        </el-row>
+      </el-header>
+
+      <el-container style="height: calc(100% - 60px)">
+        <el-main>
+          <div v-show="!hasResult">
+            <el-row type="flex" justify="center">
+              <el-col :span="20">
+                <el-input type="textarea" :disabled="submitted" :rows="15" resize="none" placeholder="请输入 Pascal 源程序或从文件打开" v-model="source">
+                </el-input>
+              </el-col>
+            </el-row>
+
+            <el-row type="flex" justify="center">
+              <input type="file" ref="inputFile" @input="selectFile" hidden>
+              <el-button @click="openFile" :disabled="submitted" type="primary" icon="el-icon-folder-opened" style="margin: 10px">打开</el-button>
+              <el-button @click="clear" :disabled="submitted" type="primary" icon="el-icon-brush" style="margin: 10px">清空</el-button>
+              <el-button @click="submit" :loading="submitted" type="primary" icon="el-icon-video-play" style="margin: 10px">编译</el-button>
+            </el-row>
+          </div>
+
+          <el-row v-show="hasResult" type="flex" justify="center">
+            <el-col :span="20">
+              <h1>编译信息</h1>
+              <el-divider></el-divider>
+              <pre>{{ info }}</pre>
+
+              <h1>Pascal 源程序</h1>
+              <el-divider></el-divider>
+              <pre><code class="language-pascal line-numbers">{{ source }}</code></pre>
+
+              <h1>语法树</h1>
+              <el-divider></el-divider>
+              <div id="tree" v-bind:style="chartStyle"></div>
+
+              <h1>C 目标程序</h1>
+              <el-divider></el-divider>
+              <pre><code class="language-c line-numbers">{{ code }}</code></pre>
+            </el-col>
+          </el-row>
+        </el-main>
+      </el-container>
+    </el-container>
+  </div>
+
+  <script type="text/javascript" src="/js/vue.js"></script>
+  <script type="text/javascript" src="/js/axios.js"></script>
+  <script type="text/javascript" src="/js/element-ui.js"></script>
+  <script type="text/javascript" src="/js/prism.js"></script>
+  <script type="text/javascript" src="/js/echarts.min.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>
